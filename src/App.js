@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Route, Switch } from "react-router-dom";
+import UserProfile from "./UserProfile";
 
 function App() {
   return (
@@ -16,7 +17,14 @@ function App() {
             </Link>
           </div>
         ))}
-
+    <Switch>
+        <Route exact path='/'></Route>
+        <Route path='/user/new'>Unable to create a new user</Route>
+        <Route path='/user/:userID'>
+          <UserProfile />
+        </Route>
+        <Route><h1>404 Not Found</h1></Route>
+    </Switch>
     </div>
   );
 }
